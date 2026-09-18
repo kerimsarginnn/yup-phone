@@ -4,7 +4,8 @@
   "version": "1.3.2",
   "main": "dist/yup-phone.cjs.js",
   "module": "dist/yup-phone.esm.js",
-  "browser": "dist/yup-phone.umd.js",
+  "unpkg": "dist/yup-phone.umd.js",
+  "jsdelivr": "dist/yup-phone.umd.js",
   "engines": {
     "node": ">=9"
   },

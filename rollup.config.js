@@ -12,7 +12,7 @@ const commonWebConfig = {
   external: ["yup"],
   output: {
     name: "yupPhone",
-    file: pkg.browser,
+    file: pkg.unpkg,
     format: "umd",
     sourcemap: true,
     globals: {
@@ -41,7 +41,7 @@ const webConfig = commonWebConfig;
 const webMinConfig = Object.assign({}, commonWebConfig, {
   output: {
     ...commonWebConfig.output,
-    file: pkg.browser.replace(/(\.js)$/, ".min$1") // yup-phone.umd.js → yup-phone.umd.min.js
+    file: pkg.unpkg.replace(/(\.js)$/, ".min$1") // yup-phone.umd.js → yup-phone.umd.min.js
   },
   plugins: [...commonWebConfig.plugins, compiler()]
 });

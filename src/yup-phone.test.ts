@@ -3,6 +3,7 @@ import * as yup from 'yup';
 // const yup = require('yup');
 // import './yup-phone';
 require('../dist/yup-phone.cjs');
+const packageJson = require('../package.json');
 
 describe('yup-phone validation', () => {
   it('validate all types of phone numbers', () => {
@@ -162,5 +163,16 @@ describe('yup-phone validation', () => {
     expect(() => {
       phoneSchema.validateSync('+1 345 9490088');
     }).toThrow('is invalid');
+  });
+});
+
+
+describe('package entrypoints', () => {
+  it('keeps the UMD bundle on CDN-specific fields instead of browser', () => {
+    expect(packageJson.browser).toBeUndefined();
+    expect(packageJson.main).toBe('dist/yup-phone.cjs.js');
+    expect(packageJson.module).toBe('dist/yup-phone.esm.js');
+    expect(packageJson.unpkg).toBe('dist/yup-phone.umd.js');
+    expect(packageJson.jsdelivr).toBe('dist/yup-phone.umd.js');
   });
 });

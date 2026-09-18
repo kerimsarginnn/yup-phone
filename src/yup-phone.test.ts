@@ -3,7 +3,7 @@ import * as yup from 'yup';
 // const yup = require('yup');
 // import './yup-phone';
 require('../dist/yup-phone.cjs');
-const packageJson = require('../package.json');
+const packageJson = jest.requireActual('../package.json');
 
 describe('yup-phone validation', () => {
   it('validate all types of phone numbers', () => {
@@ -165,7 +165,6 @@ describe('yup-phone validation', () => {
     }).toThrow('is invalid');
   });
 });
-
 
 describe('package entrypoints', () => {
   it('keeps the UMD bundle on CDN-specific fields instead of browser', () => {
